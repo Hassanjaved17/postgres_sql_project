@@ -16,13 +16,19 @@ const getUser = async (req, res) => {
     res.send(resp);
 };
 const updateUser = async (req, res) => {
-    const resp = await User.update(req.body, { where: { id: req.params.id } }); // update matching rows
-    res.send(resp);
+    const user = await User.findByPk(req.params.id);
+    if (!user) return res.status(404).send({ message: 'User not found' });
+
+    await user.update(req.body); // updates in place and refreshes the instance
+    res.send(user); // full updated object
 };
 
 const deleteUser = async (req, res) => {
-    const resp = await User.destroy({ where: { id: req.params.id } }); // destroy removes the row
-    res.send(resp);
+    const user = await User.findByPk(req.params.id);
+    if (!user) return res.status(404).send({ message: 'User not found' });
+
+    await user.destroy(); // remove from DB
+    res.send(user); // instance still holds the data in memory, even though the row is gone
 };
 
 module.exports = { addUser, getUsers, getUser, updateUser, deleteUser }; 
