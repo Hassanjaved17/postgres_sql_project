@@ -2,7 +2,7 @@ const {  DataTypes } = require('sequelize');
 const { sequelize } = require('../config/db');
 
 
-const User = sequelize.define(
+const User = sequelize.define( // We export a function that defines the model
     'User',
     {
         // Model attributes are defined here
