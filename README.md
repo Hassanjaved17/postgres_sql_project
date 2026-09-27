@@ -101,7 +101,7 @@ curl -X POST http://localhost:4000/user \
 ## Author
 
 **Hassan Javed** — MERN Stack Developer
-- Portfolio: [hassanjaved.dev](https://hassanjaved.dev)
+- Portfolio: [hassanjaved.dev](https://hassanjaveds.netlify.app)
 - GitHub: [@Hassanjaved17](https://github.com/Hassanjaved17)
 
 ## License
